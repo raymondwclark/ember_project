@@ -1,0 +1,47 @@
+$font: 'Crimson Pro', serif;
+
+body {
+	font-family: $font;
+}
+
+.container {
+	width: 100%;
+	// border: 1px solid red;
+}
+
+.header {
+	text-align: center;
+	font-family: $font;
+	font-size: 45px;
+	margin-bottom: 10px;
+}
+
+.list {
+	list-style: none;
+	padding: 50px;
+	font-size: 20px;
+}
+
+.list li {
+	border-bottom: 1px solid rgb(210, 210, 210);
+	cursor: pointer;
+	min-height: 60px;
+	height: auto;
+	line-height: 60px;
+}
+
+.list li span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+@media only screen and (max-width: 600px) {
+	.list {
+		padding: 0;
+	}
+
+	.list li {
+		padding-bottom: 10px;
+	}
+}
