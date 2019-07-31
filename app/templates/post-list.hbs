@@ -1,0 +1,11 @@
+<h1 class="header">Posts</h1>
+
+<div class="container">
+	<ul class="list">
+		{{#each this.model as |post|}}
+			<li {{action "openModal" "post-detail"}}><span>{{post.title}}</span></li>
+		{{/each}}
+	</ul>
+</div>
+
+{{outlet}}

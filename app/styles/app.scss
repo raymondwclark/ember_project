@@ -24,16 +24,54 @@ body {
 
 .list li {
 	border-bottom: 1px solid rgb(210, 210, 210);
-	cursor: pointer;
 	min-height: 60px;
 	height: auto;
 	line-height: 60px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.list li:hover {
+	cursor: pointer;
+	background-color: rgb(240, 240, 240);
 }
 
 .list li span {
 	display: inline-block;
 	vertical-align: middle;
 	line-height: normal;
+}
+
+.modal {
+	width: 600px;
+	height: 300px;
+	padding: 10px;
+	position: relative;
+	margin-left: calc(50% - 300px);
+	margin-top: calc(50vh - 150px);
+	background-color: white;
+}
+
+.modal button {
+	width: calc(100% - 40px);
+	height: 50px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: $font;
+	bottom: 20px;
+	left: 20px;
+	position: absolute;
+}
+
+.modal-overlay {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 600px) {
