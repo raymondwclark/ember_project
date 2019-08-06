@@ -54,7 +54,7 @@ export default Controller.extend({
 		},
 
 		next: function() {
-			if(this.page < (this.max - this.limit) / this.limit) {
+			if(this.page < (this.max) / this.limit) {
 				this.page++;
 				this.set('model.page', this.page);
 				this.getPosts(this.page);
@@ -62,7 +62,7 @@ export default Controller.extend({
 		},
 
 		last: function() {
-			this.page = (this.max - this.limit) / this.limit;
+			this.page = (this.max) / this.limit;
 			this.set('model.page', this.page);
 			this.getPosts(this.page);
 		}
