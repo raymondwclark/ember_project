@@ -1,5 +1,50 @@
 <div class="modal-overlay"> 
 	<div class="modal">
-		<button {{action "closeModal"}}>Dismiss</button>
+		<h1>{{post.title}}</h1>
+		<p>{{post.body}}</p>
+
+		<div class="modal-grid">
+			<div class="modal-grid-column">
+				<label class="user-attr">Name</label>
+				<br>
+				<label>{{user.name}}</label>
+			</div>
+			<div class="modal-grid-column">
+				<label class="user-attr">Username</label>
+				<br>
+				<label>{{user.username}}</label>
+			</div>
+			<div class="modal-grid-column">
+				<label class="user-attr">Email</label>
+				<br>
+				<label>{{user.email}}</label>
+			</div>
+			<div class="modal-grid-column">
+				<label class="user-attr">Phone</label>
+				<br>
+				<label>{{user.phone}}</label>
+			</div>
+			<div class="modal-grid-column">
+				<label class="user-attr">Website</label>
+				<br>
+				<label><a href="http://{{user.website}}" target="_blank">{{user.website}}</a></label>
+			</div>
+		</div>
+		<div class="modal-grid">
+			<div class="modal-grid-column">
+				<label class="user-attr">Company</label>
+				<br>
+				<label>{{user.company.name}} <br><br> {{user.company.catchPhrase}} 
+				<br><br> {{user.company.bs}}</label>
+			</div>
+			<div class="modal-grid-column">
+				<label class="user-attr">Address</label>
+				<br>
+				<label>{{user.address.street}} <br> {{user.address.suite}} <br> {{user.address.city}}
+				{{user.address.zipcode}}</label>
+			</div>
+		</div>
+		
+		<button {{action "closeModal" "post-detail"}}>Dismiss</button>
 	</div>
 </div>

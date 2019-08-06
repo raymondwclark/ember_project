@@ -2,10 +2,18 @@
 
 <div class="container">
 	<ul class="list">
-		{{#each this.model as |post|}}
-			<li {{action "openModal" "post-detail"}}><span>{{post.title}}</span></li>
+		{{#each this.model.posts as |post|}}
+			<li {{action "openModal" "post-detail" post.id }}><span>{{post.title}}</span></li>
 		{{/each}}
 	</ul>
+
+	<div class="paginate-links">
+		<button {{action "first"}}>&lt;&lt;</button>
+		<button {{action "previous"}}>&lt;</button>
+		<label>{{this.model.page}}</label>
+		<button {{action "next"}}>&gt;</button>
+		<button {{action "last"}}>&gt;&gt;</button>
+	</div>
 </div>
 
 {{outlet}}

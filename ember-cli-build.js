@@ -6,7 +6,10 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
     sassOptions: {
-      extension: 'scss'
+      extension: 'scss',
+      includePaths: [
+        'node_modules/bourbon-neat/core'
+      ]
     }
   });
 

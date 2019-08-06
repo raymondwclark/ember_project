@@ -1,3 +1,5 @@
+@import "_neat.scss";
+
 $font: 'Crimson Pro', serif;
 
 body {
@@ -7,6 +9,25 @@ body {
 .container {
 	width: 100%;
 	// border: 1px solid red;
+}
+
+$modal-grid: (
+  columns: 3,
+  gutter: 10px,
+);
+
+.modal-grid {
+  @include grid-container;
+}
+
+.modal-grid-column {
+  @include grid-column(1, $modal-grid);
+  // border: 1px solid red;
+  margin-bottom: 20px;
+}
+
+.modal-grid-collapse {
+	@include grid-collapse;
 }
 
 .header {
@@ -44,7 +65,8 @@ body {
 
 .modal {
 	width: 600px;
-	height: 300px;
+	min-height: 300px;
+	height: auto;
 	padding: 10px;
 	position: relative;
 	margin-left: calc(50% - 300px);
@@ -53,16 +75,34 @@ body {
 }
 
 .modal button {
-	width: calc(100% - 40px);
+	width: 100%;
 	height: 50px;
 	background-color: black;
 	color: white;
 	font-weight: bold;
 	font-size: 20px;
 	font-family: $font;
-	bottom: 20px;
-	left: 20px;
-	position: absolute;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.modal label {
+	// display: block;
+	margin-right: 10px;
+}
+
+.user-attr {
+	font-weight: bold;
+	color: rgb(100, 100, 100);
+	font-size: 16px;
+}
+
+.modal h1 {
+	font-size: 25px;
+}
+
+.modal p {
+	font-size: 18px;
 }
 
 .modal-overlay {
@@ -74,6 +114,17 @@ body {
 	background-color: rgba(0, 0, 0, 0.2);
 }
 
+.paginate-links {
+	text-align: center;
+}
+
+.paginate-links button {
+	font-weight: bold;
+	font-size: 15px;
+	border: none;
+	cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
 	.list {
 		padding: 0;
@@ -81,5 +132,22 @@ body {
 
 	.list li {
 		padding-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.modal {
+		position: absolute;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		width: calc(100% - 30px);
+		min-height: 100vh;
+		height: auto;
+		padding: 5px;
+		// position: relative;
+		// margin-left: calc(50% - 300px);
+		// margin-top: calc(50vh - 150px);
+		background-color: white;
 	}
 }

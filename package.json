@@ -20,12 +20,18 @@
   "devDependencies": {
     "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
+    "bourbon-neat": "^4.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-ajax": "^5.0.0",
     "ember-cli": "~3.11.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.7.3",
     "ember-cli-dependency-checker": "^3.1.0",
+    "ember-cli-deploy": "^1.0.2",
+    "ember-cli-deploy-build": "^1.1.1",
+    "ember-cli-deploy-gzip": "^1.0.1",
+    "ember-cli-deploy-s3": "^1.4.0",
+    "ember-cli-deploy-s3-index": "^1.0.1",
     "ember-cli-eslint": "^5.1.0",
     "ember-cli-htmlbars": "^3.0.1",
     "ember-cli-htmlbars-inline-precompile": "^2.1.0",
@@ -36,6 +42,7 @@
     "ember-cli-uglify": "^2.1.0",
     "ember-data": "~3.11.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-fetch": "^6.7.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.4.1",
@@ -44,11 +51,13 @@
     "ember-welcome-page": "^4.0.0",
     "eslint-plugin-ember": "^6.2.0",
     "eslint-plugin-node": "^9.0.1",
+    "http-link-header": "^1.0.2",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.4",
     "sass": "^1.22.9"
   },
   "engines": {
     "node": "8.* || >= 10.*"
-  }
+  },
+  "dependencies": {}
 }

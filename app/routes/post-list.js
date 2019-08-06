@@ -1,53 +1,56 @@
 import Route from '@ember/routing/route';
 import Ember from 'ember';
+import RSVP from 'rsvp';
 
 export default Route.extend({
 
 	model() {
-		return this.get('ajax').request('https://jsonplaceholder.typicode.com/posts?_page=1&_limit=10', {
-			method: 'GET'
-		})
-		.then(response => {
-			return response;
-		})
-		.catch(err => {
-			return err;
+		return RSVP.hash({
+			posts: [],
+			page: 1
 		});
 	},
 
-	ajax: Ember.inject.service(),
+    ajax: Ember.inject.service(),
 	actions: {
-		openModal: function(modalName, model) {
-			this.controllerFor(modalName).set('model', model)
+		openModal: function(modalName, postId, model) {
+			// get post and user details
+			this.get('ajax').request('https://jsonplaceholder.typicode.com/posts/' + postId, {
+				method: 'GET'
+			})
+			.then(post => {
+				this.get('ajax').request('https://jsonplaceholder.typicode.com/users/' + post.userId, {
+					method: 'GET'
+				})
+				.then(user => {
+					// set the properties on controller with returned data
+					this.controllerFor(modalName).set('post', post)
+					this.controllerFor(modalName).set('user', user)
+				})
+				.catch(err => {
+					return err;
+				});
+			})
+			.catch(err => {
+				return err;
+			});
+
+			// display modal view
 			return this.render(modalName, {
 				into: 'application',
 				outlet: 'modal'
 			});
 		},
-		closeModal: function() {
+
+		closeModal: function(modalName) {
+			// clear modal contents
+			this.controllerFor(modalName).set('post', {})
+			this.controllerFor(modalName).set('user', {})
+
 			return this.disconnectOutlet({
 				outlet: 'modal',
 				parentView: 'application'
 			});
-		}
-	},
-
-	init() {
-		this._super();
-	},
-
-	// initial request for posts
-	// getPosts() {
-	// 	// console.log(this.posts)
-	// 	return this.get('ajax').request('https://jsonplaceholder.typicode.com/posts?_page=1&_limit=10', {
-	// 		method: 'GET'
-	// 	})
-	// 	.then(response => {
-	// 		this.set('posts', response);
-	// 		return response;
-	// 	})
-	// 	.catch(err => {
-	// 		console.log('Error', err);
-	// 	});
-	// }
+		},
+	}
 });
